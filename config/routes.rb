@@ -3,5 +3,5 @@ Rails.application.routes.draw do
 
   get '/', to: 'welcome#index'
   get '/garages', to: 'garages#index'
-  
+  get '/refrigerators', to: 'refrigerators#index'
 end
