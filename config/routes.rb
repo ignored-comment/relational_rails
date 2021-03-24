@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get '/garages/:id', to: 'garages#show', as: 'garage'
   get '/motorcycles', to: 'motorcycles#index'
   get '/motorcycles/:id', to: 'motorcycles#show', as: 'motorcycle'
+  get '/garages/:id/motorcycles', to: 'garages#children'
 end
