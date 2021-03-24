@@ -1,0 +1,15 @@
+current directory: /Users/konham/turing/mod2/relational_rails/vendor/bundle/ruby/2.5.0/gems/bootsnap-1.7.3/ext/bootsnap
+/Users/konham/.rbenv/versions/2.5.3/bin/ruby -I /Users/konham/.rbenv/versions/2.5.3/lib/ruby/site_ruby/2.5.0 -r ./siteconf20210323-96164-1hc4psp.rb extconf.rb
+creating Makefile
+
+current directory: /Users/konham/turing/mod2/relational_rails/vendor/bundle/ruby/2.5.0/gems/bootsnap-1.7.3/ext/bootsnap
+make DESTDIR\= clean
+
+current directory: /Users/konham/turing/mod2/relational_rails/vendor/bundle/ruby/2.5.0/gems/bootsnap-1.7.3/ext/bootsnap
+make DESTDIR\=
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/konham/turing/mod2/relational_rails/vendor/bundle/ruby/2.5.0/gems/bootsnap-1.7.3/ext/bootsnap
+make DESTDIR\= install
+/usr/local/bin/ginstall -c -m 0755 bootsnap.bundle ./.gem.20210323-96164-1dg14z/bootsnap
