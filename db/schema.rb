@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_23_025342) do
+ActiveRecord::Schema.define(version: 2021_03_24_000021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(version: 2021_03_23_025342) do
     t.datetime "updated_at"
     t.boolean "at_capacity"
     t.integer "max_capacity"
+  end
+
+  create_table "refrigerators", force: :cascade do |t|
+    t.string "name"
+    t.boolean "has_freezer"
+    t.integer "capacity_cubic_feet"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
