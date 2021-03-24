@@ -1,0 +1,3 @@
+class Motorcycle < ApplicationRecord
+  
+end

@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get '/refrigerators', to: 'refrigerators#index'
   get '/refrigerators/:id', to: 'refrigerators#show', as: 'refrigerator'
   get '/garages/:id', to: 'garages#show', as: 'garage'
+  get '/motorcycles', to: 'motorcycles#index'
 end

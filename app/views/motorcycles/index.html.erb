@@ -1,0 +1,10 @@
+<h1> List of All Motorcycles </h1>
+
+<% @motorcycles.each do |motorcycle| %>
+  <h2><%= motorcycle.name %></h2>
+  <p>Created at: <%= motorcycle.created_at%></p>
+  <p>Updated at: <%= motorcycle.updated_at%></p><br>
+  <p>Garage ID: <%= motorcycle.garage_id%></p>
+  <p>Ride Ready? <%= motorcycle.ride_ready%></p>
+  <p>Motorcycle Year: <%= motorcycle.model_year%></p><br>
+<% end %>
