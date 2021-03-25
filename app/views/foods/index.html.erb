@@ -1,0 +1,10 @@
+<h1> List of All Food</h1>
+
+<% @foods.each do |food| %>
+  <h2><%= food.name %></h2>
+  <p>Created at: <%= food.created_at%></p>
+  <p>Updated at: <%= food.updated_at%></p><br>
+  <p>Refrigerator ID: <%= food.refrigerator_id%></p>
+  <p>Expired? <%= food.expired%></p>
+  <p>Total Items Available: <%= food.total_items_available%></p><br>
+<% end %>

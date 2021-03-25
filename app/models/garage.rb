@@ -1,3 +1,3 @@
 class Garage < ApplicationRecord
-  has_many :motorcycle 
+  has_many :motorcycles
 end
