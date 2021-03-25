@@ -1,3 +1,7 @@
+<a href="/garages">Full Garage Index</a>
+<a href="/motorcycles">Full Motorcycle Index</a>
+<a href="/garages/:id/motorcycles">Motorcycles that Belong to This Garage</a>
+
 <h1><%= @garage.name %></h1>
 <p>Created on: <%= @garage.created_at %></p>
 <p>Last Updated: <%= @garage.updated_at %></p>
@@ -8,3 +12,5 @@
 <p><%= @garage.at_capacity %></p>
 <h2>Max Motorcycle Capacity: </h2>
 <p><%= @garage.max_capacity %> motorcycles</p>
+<h2>Number of Motorcycle Items: </h2>
+<%=@garage.motorcycles.count%><br><br>

@@ -1,6 +1,6 @@
+<a href="/motorcycles">Full Motorcycle Index</a>
 <h1>Garages</h1>
 
-<% @garages.each do |garage|%>
-  <h2><%= garage.name%></h2>
+<% @garage_order.each do |garage|%>
+  <h2><%= garage.name %>: Created at: <%=garage.created_at%></h2>
 <% end %>
-
