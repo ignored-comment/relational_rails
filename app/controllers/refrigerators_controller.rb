@@ -6,6 +6,7 @@ class RefrigeratorsController < ApplicationController
 
   def show
     @refrigerator = Refrigerator.find(params[:id])
+    @food_count = @refrigerator.count_foods
   end
 
   def show_foods_in_refrigerator

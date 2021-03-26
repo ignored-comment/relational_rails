@@ -6,6 +6,7 @@ class GaragesController < ApplicationController
 
   def show
     @garage = Garage.find(params[:id])
+    @motorcycle_count = @garage.count_motorcycles
   end
 
   def show_motorcycles_in_garage
