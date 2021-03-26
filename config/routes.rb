@@ -5,8 +5,9 @@ Rails.application.routes.draw do
 
   get '/garages', to: 'garages#index'
   get '/garages/:id', to: 'garages#show'
-  get '/garages/:id/motorcycles', to: 'garages#children'
-  get '/garages/:id/this_garage', to: 'garages#motorcycles_in_garage'
+  get '/garages/:id/motorcycles',
+    to: 'garages#show_motorcycles_in_garage',
+    as: 'motorcycles_in_this_garage'
 
   get '/motorcycles', to: 'motorcycles#index'
   get '/motorcycles/:id', to: 'motorcycles#show'

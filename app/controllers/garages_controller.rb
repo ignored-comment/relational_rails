@@ -8,7 +8,7 @@ class GaragesController < ApplicationController
     @garage = Garage.find(params[:id])
   end
 
-  def children
+  def show_motorcycles_in_garage
     @children = Garage.find(params[:id]).motorcycles
   end
 end
