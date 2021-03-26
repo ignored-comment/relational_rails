@@ -8,7 +8,7 @@ class RefrigeratorsController < ApplicationController
     @refrigerator = Refrigerator.find(params[:id])
   end
 
-  def children
-    @children = Refrigerator.find(params[:id]).foods
+  def show_foods_in_refrigerator
+    @foods = Refrigerator.find(params[:id]).foods
   end
 end
