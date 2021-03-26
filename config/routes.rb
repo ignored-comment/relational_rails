@@ -14,7 +14,9 @@ Rails.application.routes.draw do
 
   get '/refrigerators', to: 'refrigerators#index'
   get '/refrigerators/:id', to: 'refrigerators#show'
-  get '/refrigerators/:id/foods', to: 'refrigerators#children'
+  get '/refrigerators/:id/foods', 
+    to: 'refrigerators#show_foods_in_refrigerator', 
+    as: 'foods_in_this_refrigerator'
 
   get '/foods', to: 'foods#index'
   get '/foods/:id', to: 'foods#show'
