@@ -5,7 +5,7 @@ RSpec.describe "garages show page", type: :feature do
     garage_1 = Garage.create!(name: "Kon's Garage", at_capacity: false, max_capacity: 4)
     garage_2 = Garage.create!(name: "Aidan's Garage", at_capacity: true, max_capacity: 2)
 
-    visit "/garages/#{garage_1.id}"
+    visit "/garages/#{garage_1.id}" #TODO make dynamic?
 
     expect(page).to have_content(garage_1.created_at)
     expect(page).to have_content(garage_1.updated_at)

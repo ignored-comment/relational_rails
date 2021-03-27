@@ -2,6 +2,7 @@
 
 <% @foods.each do |food| %>
   <h2><%= food.name %></h2>
+  <p>ID: <%= food.id%></p>
   <p>Created at: <%= food.created_at%></p>
   <p>Updated at: <%= food.updated_at%></p><br>
   <p>Refrigerator ID: <%= food.refrigerator_id%></p>
