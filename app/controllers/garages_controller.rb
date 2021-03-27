@@ -9,7 +9,7 @@ class GaragesController < ApplicationController
     @motorcycle_count = @garage.count_motorcycles
   end
 
-  def show_motorcycles_in_garage
+  def index_motorcycles_in_garage
     @motorcycles = Garage.find(params[:id]).motorcycles
   end
 end

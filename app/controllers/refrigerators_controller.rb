@@ -9,7 +9,7 @@ class RefrigeratorsController < ApplicationController
     @food_count = @refrigerator.count_foods
   end
 
-  def show_foods_in_refrigerator
+  def index_foods_in_refrigerator
     @foods = Refrigerator.find(params[:id]).foods
   end
 end

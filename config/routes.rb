@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/garages', to: 'garages#index'
   get '/garages/:id', to: 'garages#show'
   get '/garages/:id/motorcycles',
-    to: 'garages#show_motorcycles_in_garage',
+    to: 'garages#index_motorcycles_in_garage',
     as: 'motorcycles_in_this_garage'
 
   get '/motorcycles', to: 'motorcycles#index'
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get '/refrigerators', to: 'refrigerators#index'
   get '/refrigerators/:id', to: 'refrigerators#show'
   get '/refrigerators/:id/foods', 
-    to: 'refrigerators#show_foods_in_refrigerator', 
+    to: 'refrigerators#index_foods_in_refrigerator', 
     as: 'foods_in_this_refrigerator'
 
   get '/foods', to: 'foods#index'
