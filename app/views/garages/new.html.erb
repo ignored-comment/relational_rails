@@ -1,0 +1,27 @@
+<!-- <h2>Create a New Garage</h2>
+<%= form_with model: @garage, local: true do |f| %>
+  <%= f.label "What is your garage's name?" %>
+  <%= f.text_field :name %><br>
+
+  <%= f.label "Is your garage at max capacity?" %>
+  <%= f.text_field :at_capacity %><br>
+
+  <%= f.label "What is your garage's max capacity in motorcycles? (please use integers)" %>
+  <%= f.text_field :max_capacity %><br>
+
+  <%= f.submit %>
+<% end %> -->
+
+<form action="/garages" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <h2>Create A New Garage</h2>
+  <p>Enter your garage's name</p>
+  <input type='text' name='garage[name]'/><br/>
+
+  <p>Is this garage at max capacity? (enter true or false)</p>
+  <input type='text' name='garage[at_capacity]'/><br/>
+
+  <p>Enter your garage's max capacity in motorcycles</p>
+  <input type='text' name='garage[max_capacity]'/><br/>
+  <input type='submit'/>
+</form>

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'garages index page', type: :feature do
-  it "can see the name of each garage record in the system" do 
+  it "can see the name of each garage record in the system" do
     garage_1 = Garage.create!(name: "Kon's Garage", at_capacity: false, max_capacity: 4)
     garage_2 = Garage.create!(name: "Aidan's Garage", at_capacity: true, max_capacity: 2)
 
@@ -16,7 +16,7 @@ RSpec.describe 'garages index page', type: :feature do
   it "shows the number of motorcycles in the garage" do
     garage_1 = Garage.create!(name: "Kon's Garage", at_capacity: false, max_capacity: 4)
     garage_2 = Garage.create!(name: "Aidan's Garage", at_capacity: true, max_capacity: 2)
-  
+
     visit "/garages"
 
     expect(page).to have_content(garage_1.count_motorcycles)
@@ -38,5 +38,13 @@ RSpec.describe 'garages index page', type: :feature do
     expect(page).to have_link("Full Motorcycle Index")
     click_link "Full Motorcycle Index"
     expect(current_path).to eq("/motorcycles")
+  end
+
+  it "has a link to create a new Garage record, 'New Garage' " do
+    visit '/garages'
+
+    expect(page).to have_link('New Garage')
+    click_link 'New Garage'
+    expect(current_path).to eq('/garages/new')
   end
 end

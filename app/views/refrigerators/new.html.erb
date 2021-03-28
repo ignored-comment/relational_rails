@@ -1,0 +1,13 @@
+<form action="/refrigerators" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <h2>Create A New Refrigerator</h2>
+  <p>Enter your refrigerator's name</p>
+  <input type='text' name='refrigerator[name]'/><br/>
+
+  <p>Does this refrigerator have a freezer? (enter true or false)</p>
+  <input type='text' name='refrigerator[has_freezer]'/><br/>
+
+  <p>Enter your refrigerator's max capacity in cubic feet</p>
+  <input type='text' name='refrigerator[capacity_cubic_feet]'/><br/>
+  <input type='submit'/>
+</form>
