@@ -24,6 +24,22 @@ RSpec.describe "refrigerator show page", type: :feature do
     expect(page).to have_content(refrigerator2.capacity_cubic_feet)
   end
 
+  it "can show a count of the number of foods associated with this refrigerator" do
+    refrigerator1 = Refrigerator.create!(name: "Kons Refrigerator", has_freezer: true, capacity_cubic_feet: 45)
+    refrigerator2 = Refrigerator.create!(name: "Aidans Refrigerator", has_freezer: false, capacity_cubic_feet: 12)
+
+    food1 = refrigerator1.foods.create!(name: "apple", expired: true, total_items_available:12)
+    food2 = refrigerator2.foods.create!(name: "snapple", expired: false, total_items_available:1)
+
+    visit "/refrigerators/#{refrigerator1.id}"
+    
+    expect(page).to have_content(refrigerator1.count_foods)
+
+    visit "/refrigerators/#{refrigerator1.id}"
+
+    expect(page).to have_content(refrigerator2.count_foods)
+  end
+
   it "has a link to take me to that refrigerators's foods page" do
     refrigerator1 = Refrigerator.create!(name: "Kons Refrigerator", has_freezer: true, capacity_cubic_feet: 45)
     refrigerator2 = Refrigerator.create!(name: "Aidans Refrigerator", has_freezer: false, capacity_cubic_feet: 12)
