@@ -1,13 +1,14 @@
-<form action="/garages" method="post">
+<form action="/garages/<%= @garage.id %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <h2>Create A New Garage</h2>
-  <p>Enter your garage's name</p>
+  <input type="hidden" name="_method" value="PATCH"/>
+  <h2>Edit This Garage</h2>
+  <p>Edit this garage's name</p>
   <input type='text' name='garage[name]'/><br/>
 
   <p>Is this garage at max capacity? (enter true or false)</p>
   <input type='text' name='garage[at_capacity]'/><br/>
 
-  <p>Enter your garage's max capacity in motorcycles</p>
+  <p>Edit this garage's max capacity in motorcycles (enter integers only)</p>
   <input type='text' name='garage[max_capacity]'/><br/>
   <input type='submit'/>
 </form>

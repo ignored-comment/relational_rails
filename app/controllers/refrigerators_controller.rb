@@ -26,4 +26,19 @@ class RefrigeratorsController < ApplicationController
 
     redirect_to '/refrigerators'
   end
+
+  def edit
+    @refrigerator = Refrigerator.find(params[:id])
+  end
+
+  def update
+    refrigerator = Refrigerator.find(params[:id])
+    refrigerator.update({
+      name: params[:refrigerator][:name],
+      has_freezer: params[:refrigerator][:has_freezer],
+      capacity_cubic_feet: params[:refrigerator][:capacity_cubic_feet]
+      })
+    refrigerator.save
+    redirect_to "/refrigerators/#{refrigerator.id}"
+  end
 end
