@@ -46,4 +46,21 @@ RSpec.describe 'motorcycle index page via parent garage', type: :feature do
     expect(page).to have_content(motorcycle_4.ride_ready)
     expect(page).to have_content(motorcycle_4.model_year)
   end
+
+  it "has a link to take me to the garages index" do
+    garage_1 = Garage.create!(name: "Kon's Garage", at_capacity: false, max_capacity: 4)
+    garage_2 = Garage.create!(name: "Aidan's Garage", at_capacity: true, max_capacity: 2)
+
+    visit "/garages/#{garage_1.id}/motorcycles"
+
+    expect(page).to have_link("Full Garage Index")
+    click_link "Full Garage Index"
+    expect(current_path).to eq("/garages")
+
+    visit "/garages/#{garage_2.id}/motorcycles"
+
+    expect(page).to have_link("Full Garage Index")
+    click_link "Full Garage Index"
+    expect(current_path).to eq("/garages")
+  end
 end

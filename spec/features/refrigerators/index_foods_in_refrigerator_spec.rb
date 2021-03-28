@@ -48,4 +48,21 @@ RSpec.describe 'food index page via parent refrigerator', type: :feature do
     expect(page).to have_content(food4.expired)
     expect(page).to have_content(food4.total_items_available)
   end
+
+  it "has a link to take me to the refrigerators index" do
+    refrigerator1 = Refrigerator.create!(name: "Kons Refrigerator", has_freezer: true, capacity_cubic_feet: 45)
+    refrigerator2 = Refrigerator.create!(name: "Aidans Refrigerator", has_freezer: false, capacity_cubic_feet: 12)
+
+    visit "/refrigerators/#{refrigerator1.id}/foods"
+
+    expect(page).to have_link("Full Refrigerator Index")
+    click_link "Full Refrigerator Index"
+    expect(current_path).to eq("/refrigerators")
+
+    visit "/refrigerators/#{refrigerator2.id}/foods"
+
+    expect(page).to have_link("Full Refrigerator Index")
+    click_link "Full Refrigerator Index"
+    expect(current_path).to eq("/refrigerators")
+  end
 end

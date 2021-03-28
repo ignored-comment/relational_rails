@@ -46,4 +46,24 @@ RSpec.describe 'motorcycle index page', type: :feature do
     expect(page).to have_content(motorcycle_4.ride_ready)
     expect(page).to have_content(motorcycle_4.model_year)
   end
+
+  it "has a link to take me to the refrigerators index" do
+    refrigerator1 = Refrigerator.create!(name: "Kons Refrigerator", has_freezer: true, capacity_cubic_feet: 45)
+    refrigerator2 = Refrigerator.create!(name: "Aidans Refrigerator", has_freezer: false, capacity_cubic_feet: 12)
+
+    food1 = refrigerator1.foods.create!(name: "apple", expired: true, total_items_available:12)
+    food2 = refrigerator2.foods.create!(name: "snapple", expired: false, total_items_available:1)
+
+    visit "/foods/#{food1.id}"
+
+    expect(page).to have_link("Full Refrigerator Index")
+    click_link "Full Refrigerator Index"
+    expect(current_path).to eq("/refrigerators")
+
+    visit "/foods/#{food2.id}"
+
+    expect(page).to have_link("Full Refrigerator Index")
+    click_link "Full Refrigerator Index"
+    expect(current_path).to eq("/refrigerators")
+  end
 end

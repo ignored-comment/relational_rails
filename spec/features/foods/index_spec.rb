@@ -46,4 +46,21 @@ RSpec.describe "Foods index", type: :feature do
     expect(page).to have_content(food4.refrigerator_id)
     expect(page).to have_content(food1.id)
   end
+
+  it "has a link to take me to the refrigerators index" do
+    refrigerator1 = Refrigerator.create!(name: "Kons Refrigerator", has_freezer: true, capacity_cubic_feet: 45)
+    refrigerator2 = Refrigerator.create!(name: "Aidans Refrigerator", has_freezer: false, capacity_cubic_feet: 12)
+
+    visit "/foods"
+
+    expect(page).to have_link("Full Refrigerator Index")
+    click_link "Full Refrigerator Index"
+    expect(current_path).to eq("/refrigerators")
+
+    visit "/foods"
+
+    expect(page).to have_link("Full Refrigerator Index")
+    click_link "Full Refrigerator Index"
+    expect(current_path).to eq("/refrigerators")
+  end
 end
