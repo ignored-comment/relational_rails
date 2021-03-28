@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "garages show page", type: :feature do
-  it "from garage ID, it can see data from each column that is on the garage table" do 
+  it "from garage ID, it can see data from each column that is on the garage table" do
     garage_1 = Garage.create!(name: "Kon's Garage", at_capacity: false, max_capacity: 4)
     garage_2 = Garage.create!(name: "Aidan's Garage", at_capacity: true, max_capacity: 2)
 
@@ -22,6 +22,22 @@ RSpec.describe "garages show page", type: :feature do
     expect(page).to have_content(garage_2.id)
     expect(page).to have_content(garage_2.at_capacity)
     expect(page).to have_content(garage_2.max_capacity)
+  end
+
+  it "can show a count of the number of motorcycles associated with this garage" do
+    garage_1 = Garage.create!(name: "Kon's Garage", at_capacity: false, max_capacity: 4)
+    garage_2 = Garage.create!(name: "Aidan's Garage", at_capacity: true, max_capacity: 2)
+
+    motorcycle_1 = garage_1.motorcycles.create!(name: "ZoomZoom X1", ride_ready: true, model_year: 2050)
+    motorcycle_2 = garage_2.motorcycles.create!(name: "VroomVroom X-Wowza-so-fast", ride_ready: true, model_year: 1969)
+
+    visit "/garages/#{garage_1.id}"
+
+    expect(page).to have_content(garage_1.count_motorcycles)
+
+    visit "/garages/#{garage_2.id}"
+
+    expect(page).to have_content(garage_2.count_motorcycles)
   end
 
   it "has a link to take me to that garage's motorcycles page" do
