@@ -17,13 +17,11 @@ class RefrigeratorsController < ApplicationController
   end
 
   def create
-    refrigerator = Refrigerator.new({
-      name: params[:refrigerator][:name],
-      has_freezer: params[:refrigerator][:has_freezer],
-      capacity_cubic_feet: params[:refrigerator][:capacity_cubic_feet]
-      })
-    refrigerator.save
-
+    refrigerator = Refrigerator.create(
+      name: params[:name],
+      has_freezer: params[:has_freezer],
+      capacity_cubic_feet: params[:capacity_cubic_feet]
+      )
     redirect_to '/refrigerators'
   end
 

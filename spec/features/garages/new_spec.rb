@@ -1,22 +1,24 @@
 require 'rails_helper'
 
-RSpec.describe 'in the new garage page', type: :feature do
-  # it 'can show a new garage form' do
-  #   visit '/garages/new'
-  #
-  #   expect(page).to have_content("What is your garage's name?")
-  #   expect(page).to have_content("Is your garage at max capacity?")
-  #   expect(page).to have_content("What is your garage's max capacity in motorcycles? (please use integers)")
-  #   expect(page).to have_button("Create Garage")
+RSpec.describe 'new garage form', type: :feature do
+  describe 'as a visitor' do
+    describe 'when I visit the new garage form' do
+      it 'i can create a new garage' do
+        visit '/garages'
 
-  # it 'can create a new garage' do
-  #   visit '/garages/new'
-  #
-  #   within(garages_form) do
-  #     fill_in "What is your garage's name?", with: "Boop's Garage"
-  #     check "Is your garage at max capacity?"
-  #     fill_in "What is your garage's max capacity in motorcycles? (please use integers)", with: "8"
-  #     click_button 'Create Garage'
-  #   end
-  # end
+        click_link 'New Garage'
+
+        expect(current_path).to eq('/garages/new')
+
+        fill_in "Name", with: "Koops Garage"
+        check "at_capacity"
+        fill_in 'max_capacity', with: 99
+
+        click_link_or_button "Create Garage"
+
+        expect(current_path).to eq('/garages')
+        expect(page).to have_content("Koops Garage")
+      end
+    end
+  end
 end

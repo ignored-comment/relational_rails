@@ -18,12 +18,11 @@ class GaragesController < ApplicationController
   end
 
   def create
-    garage = Garage.new({
-      name: params[:garage][:name],
-      at_capacity: params[:garage][:at_capacity],
-      max_capacity: params[:garage][:max_capacity]
-      })
-    garage.save
+    garage = Garage.create(
+      name: params[:name],
+      at_capacity: params[:at_capacity],
+      max_capacity: params[:max_capacity]
+      )
 
     redirect_to '/garages'
   end
@@ -34,11 +33,11 @@ class GaragesController < ApplicationController
 
   def update
     garage = Garage.find(params[:id])
-    garage.update({
-      name: params[:garage][:name],
-      at_capacity: params[:garage][:at_capacity],
-      max_capacity: params[:garage][:max_capacity]
-      })
+    garage.update(
+      name: params[:name],
+      at_capacity: params[:at_capacity],
+      max_capacity: params[:max_capacity]
+      )
     garage.save
     redirect_to "/garages/#{garage.id}"
   end
