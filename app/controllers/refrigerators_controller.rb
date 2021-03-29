@@ -31,11 +31,11 @@ class RefrigeratorsController < ApplicationController
 
   def update
     refrigerator = Refrigerator.find(params[:id])
-    refrigerator.update({
-      name: params[:refrigerator][:name],
-      has_freezer: params[:refrigerator][:has_freezer],
-      capacity_cubic_feet: params[:refrigerator][:capacity_cubic_feet]
-      })
+    refrigerator.update(
+      name: params[:name],
+      has_freezer: params[:has_freezer],
+      capacity_cubic_feet: params[:capacity_cubic_feet]
+      )
     refrigerator.save
     redirect_to "/refrigerators/#{refrigerator.id}"
   end

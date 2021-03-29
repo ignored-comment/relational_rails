@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   get 'garages/:id/edit', to: 'garages#edit', as: 'edit_this_garage'
   patch '/garages/:id', to: 'garages#update'
   get '/garages/:id/motorcycles',
-    to: 'garages#index_motorcycles_in_garage',
-    as: 'motorcycles_in_this_garage'
+  to: 'garages#index_motorcycles_in_garage',
+  as: 'motorcycles_in_this_garage'
 
   get '/motorcycles', to: 'motorcycles#index'
   get '/motorcycles/:id', to: 'motorcycles#show'

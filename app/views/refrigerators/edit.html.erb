@@ -1,14 +1,12 @@
-<form action="/refrigerators/<%= @refrigerator.id %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="PATCH"/>
-  <h2>Edit This Refrigerator</h2>
-  <p>Edit this refrigerator's name</p>
-  <input type='text' name='refrigerator[name]'/><br/>
+<%= form_with url: "/refrigerators/#{@refrigerator.id}", method: :patch, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %><br>
 
-  <p>Does this refrigerator have a freezer? (enter true or false)</p>
-  <input type='text' name='refrigerator[has_freezer]'/><br/>
+  <%= form.label "has freezer?" %>
+  <%= form.check_box :has_freezer, {}, checked = "true", unchecked = "false" %><br>
 
-  <p>Edit this refrigerator's capacity in cubic feet (enter integer only)</p>
-  <input type='text' name='refrigerator[capacity_cubic_feet]'/><br/>
-  <input type='submit'/>
-</form>
+  <%= form.label "capacity in cubic feet" %>
+  <%= form.number_field :capacity_cubic_feet, in: 1..99, step: 1%><br>
+  
+  <%= form.submit 'Update Refrigerator' %>
+<% end %>
