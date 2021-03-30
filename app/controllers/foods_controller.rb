@@ -12,12 +12,13 @@ class FoodsController < ApplicationController
   end
 
   def create
-    @food = Food.create!(
+    @refrigerator = Refrigerator.find(params[:id])
+    @refrigerator.foods.create!(
       name: params[:name],
       expired: params[:expired],
       total_items_available: params[:total_items_available],
       refrigerator_id: params[:refrigerator_id]
     )
-    redirect_to "/refrigerators/:id/foods"
+    redirect_to "/refrigerators/#{@refrigerator.id}/foods"
   end
 end
