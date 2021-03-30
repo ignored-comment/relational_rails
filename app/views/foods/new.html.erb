@@ -1,0 +1,12 @@
+<%= form_with url: "/refrigerators/#{@refrigerator.id}/foods", method: :post, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %><br>
+
+  <%= form.label "expired?" %>
+  <%= form.check_box :expired, {}, checked = "true", unchecked = "false" %><br>
+
+  <%= form.label "total items available" %>
+  <%= form.number_field :total_items_available, in: 1..99, step: 1%><br>
+  
+  <%= form.submit 'Create Food' %>
+<% end %>

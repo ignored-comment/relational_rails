@@ -39,4 +39,14 @@ class RefrigeratorsController < ApplicationController
     refrigerator.save
     redirect_to "/refrigerators/#{refrigerator.id}"
   end
+
+  # def create_food
+  #   refrigerator = Refrigerator.find(params[:id])
+  #   refrigerator.foods.create!(
+  #     name: params[:name],
+  #     expired: params[:expired],
+  #     total_items_available:[:total_items_available]
+  #   )
+  #   redirect_to "/refrigerators/#{refrigerator.id}"
+  # end
 end

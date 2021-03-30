@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/', to: 'welcome#index'
 
   get '/garages', to: 'garages#index'
-  get '/garages/new', to: 'garages#new' #TODO Ask Question 'bout dis
+  get '/garages/new', to: 'garages#new'
   post '/garages', to: 'garages#create'
   get '/garages/:id', to: 'garages#show'
   get 'garages/:id/edit', to: 'garages#edit', as: 'edit_this_garage'
@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   get '/refrigerators', to: 'refrigerators#index'
   get '/refrigerators/new', to: 'refrigerators#new'
   post '/refrigerators', to: 'refrigerators#create'
+  get '/refrigerators/:id/foods/new', to: 'foods#new', as: 'new_food'
+  post '/refrigerators/:id/foods', to: 'foods#create'
   get '/refrigerators/:id', to: 'refrigerators#show'
   get '/refrigerators/:id/edit', to: 'refrigerators#edit', as: 'edit_this_refrigerator'
   patch '/refrigerators/:id', to: 'refrigerators#update'
