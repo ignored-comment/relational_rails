@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   get '/motorcycles', to: 'motorcycles#index'
   get '/motorcycles/:id', to: 'motorcycles#show'
+  get '/motorcycles/:id/edit', to: 'motorcycles#edit'
+  patch '/motorcycles/:id', to: 'motorcycles#update'
 
   get '/refrigerators', to: 'refrigerators#index'
   get '/refrigerators/new', to: 'refrigerators#new'
@@ -32,4 +34,6 @@ Rails.application.routes.draw do
 
   get '/foods', to: 'foods#index'
   get '/foods/:id', to: 'foods#show'
+  get '/foods/:id/edit', to: 'foods#edit'
+  patch '/foods/:id', to: 'foods#update'
 end

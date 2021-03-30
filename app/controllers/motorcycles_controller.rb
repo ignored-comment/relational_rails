@@ -22,4 +22,19 @@ class MotorcyclesController < ApplicationController
     )
     redirect_to "/garages/#{@garage.id}/motorcycles"
   end
+
+  def edit
+    @motorcycle = Motorcycle.find(params[:id])
+  end
+
+  def update
+    motorcycle = Motorcycle.find(params[:id])
+    motorcycle.update(
+      name: params[:name],
+      ride_ready: params[:ride_ready],
+      model_year: params[:model_year]
+      )
+    motorcycle.save
+    redirect_to "/motorcycles/#{motorcycle.id}"
+  end
 end

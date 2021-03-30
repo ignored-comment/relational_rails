@@ -1,0 +1,12 @@
+<%= form_with url: "/motorcycles/#{@motorcycle.id}", method: :patch, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %><br>
+
+  <%= form.label "ride ready?" %>
+  <%= form.check_box :ride_ready, {}, checked = "true", unchecked = "false" %><br>
+
+  <%= form.label "model year" %>
+  <%= form.number_field :model_year, in: 1900..2050, step: 1%><br>
+  
+  <%= form.submit 'Update Motorcycle' %>
+<% end %>

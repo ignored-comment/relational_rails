@@ -1,5 +1,6 @@
 <a href="/garages">Full Garage Index</a><br>
-<a href="/motorcycles">Full Motorcycle Index</a>
+<a href="/motorcycles">Full Motorcycle Index</a><br>
+<%= link_to 'Update Motorcycle', "/motorcycles/#{@motorcycle.id}/edit"%><br>
 <h1><%= @motorcycle.name %></h1>
 <p>Created on: <%= @motorcycle.created_at %></p>
 <p>Last Updated: <%= @motorcycle.updated_at %></p>

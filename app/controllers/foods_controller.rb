@@ -21,4 +21,19 @@ class FoodsController < ApplicationController
     )
     redirect_to "/refrigerators/#{@refrigerator.id}/foods"
   end
+
+  def edit
+    @food = Food.find(params[:id])
+  end
+
+  def update
+    food = Food.find(params[:id])
+    food.update(
+      name: params[:name],
+      expired: params[:expired],
+      total_items_available: params[:total_items_available]
+      )
+    food.save
+    redirect_to "/foods/#{food.id}"
+  end
 end
