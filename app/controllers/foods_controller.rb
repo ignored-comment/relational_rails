@@ -1,6 +1,6 @@
 class FoodsController < ApplicationController
   def index
-    @foods = Food.all
+    @foods = Food.expired
   end
 
   def show
