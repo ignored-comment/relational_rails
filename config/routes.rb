@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get '/garages', to: 'garages#index'
   get '/garages/new', to: 'garages#new'
   post '/garages', to: 'garages#create'
+  get '/garages/:id/motorcycles/new', to: 'motorcycles#new', as: 'new_motorcycle'
+  post '/garages/:id/motorcycles', to: 'motorcycles#create'
   get '/garages/:id', to: 'garages#show'
   get 'garages/:id/edit', to: 'garages#edit', as: 'edit_this_garage'
   patch '/garages/:id', to: 'garages#update'
