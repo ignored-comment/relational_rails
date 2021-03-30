@@ -1,7 +1,7 @@
 class MotorcyclesController < ApplicationController
 
   def index
-    @motorcycles = Motorcycle.all
+    @motorcycles = Motorcycle.ride_ready_motorcycles
   end
 
   def show

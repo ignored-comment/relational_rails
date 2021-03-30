@@ -6,10 +6,10 @@ RSpec.describe "Foods index", type: :feature do
     refrigerator2 = Refrigerator.create!(name: "Aidans Refrigerator", has_freezer: false, capacity_cubic_feet: 12)
 
     food1 = refrigerator1.foods.create!(name: "apple", expired: true, total_items_available:12)
-    food2 = refrigerator1.foods.create!(name: "snapple", expired: false, total_items_available:1)
+    food2 = refrigerator1.foods.create!(name: "snapple", expired: true, total_items_available:1)
     
     food3 = refrigerator2.foods.create!(name: "yogurt", expired: true, total_items_available:8)
-    food4 = refrigerator2.foods.create!(name: "carrot", expired: false, total_items_available:5)
+    food4 = refrigerator2.foods.create!(name: "carrot", expired: true, total_items_available:5)
 
 
     visit "/foods"

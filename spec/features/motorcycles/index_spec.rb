@@ -2,13 +2,13 @@ require 'rails_helper'
 
 RSpec.describe 'motorcycle index page', type: :feature do
   it "can see each motorcyle in the system including the motorcyle's attributes" do
-    garage_1 = Garage.create!(name: "Kon's Garage", at_capacity: false, max_capacity: 4)
+    garage_1 = Garage.create!(name: "Kon's Garage", at_capacity: true, max_capacity: 4)
     garage_2 = Garage.create!(name: "Aidan's Garage", at_capacity: true, max_capacity: 2)
 
     motorcycle_1 = garage_1.motorcycles.create!(name: "ZoomZoom X1", ride_ready: true, model_year: 2050)
-    motorcycle_2 = garage_1.motorcycles.create!(name: "BoomBoom X1-zdf23", ride_ready: false, model_year: 2010)
+    motorcycle_2 = garage_1.motorcycles.create!(name: "BoomBoom X1-zdf23", ride_ready: true, model_year: 2010)
     motorcycle_3 = garage_2.motorcycles.create!(name: "VroomVroom X-Wowza-so-fast", ride_ready: true, model_year: 1969)
-    motorcycle_4 = garage_2.motorcycles.create!(name: "AYYY LAMO X1", ride_ready: false, model_year: 2190)
+    motorcycle_4 = garage_2.motorcycles.create!(name: "AYYY LAMO X1", ride_ready: true, model_year: 2190)
 
     visit '/motorcycles'
 
