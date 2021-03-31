@@ -91,4 +91,17 @@ RSpec.describe "foods show page", type: :feature do
     click_link "Full Foods Index"
     expect(current_path).to eq("/foods")
   end
+
+  it 'displays a link for each food that deletes that food' do
+    refrigerator1 = Refrigerator.create!(name: "Kons Refrigerator", has_freezer: true, capacity_cubic_feet: 45)
+
+    food1 = refrigerator1.foods.create!(name: "crapple", expired: true, total_items_available:12)
+
+    visit "/foods/#{food1.id}"
+
+    expect(page).to have_link("Delete Food")
+    click_link "Delete Food"
+    expect(current_path).to eq('/foods')
+    expect(page).to have_no_content("crapple")
+  end
 end

@@ -14,3 +14,5 @@
 <p><%= @food.expired %></p>
 <h2>Total Items Available: </h2>
 <p><%= @food.total_items_available %></p>
+
+<%= link_to "Delete Food", "/foods/#{@food.id}", method: :delete %>

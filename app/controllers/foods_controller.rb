@@ -36,4 +36,9 @@ class FoodsController < ApplicationController
     food.save
     redirect_to "/foods/#{food.id}"
   end
+
+  def destroy
+    Food.destroy(params[:id])
+    redirect_to "/foods"
+  end
 end
