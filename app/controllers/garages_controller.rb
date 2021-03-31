@@ -14,11 +14,15 @@ class GaragesController < ApplicationController
   end
 
   def index_sorted_motorycles_in_garage
-    @motorcycles = Garage.find(params[:id]).motorcycles.order(:name)
+    if params[:model_year].nil?
+      @motorcycles = Garage.find(params[:id]).motorcycles.order(:name)
+    else
+      form_argument = params[:model_year]
+      @motorcycles = Garage.find(params[:id]).motorcycles.where("model_year > ?", form_argument)
+    end
   end
 
   def new
-
   end
 
   def create

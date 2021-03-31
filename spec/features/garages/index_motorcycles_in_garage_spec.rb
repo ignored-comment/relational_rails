@@ -80,4 +80,17 @@ RSpec.describe 'motorcycle index page via parent garage', type: :feature do
     click_link "Full Motorcycle Index"
     expect(current_path).to eq("/motorcycles")
   end
+
+  it 'has form that filters motorcycles based on argument' do
+    garage_1 = Garage.create!(name: "Kon's Garage", at_capacity: false, max_capacity: 4)
+
+    visit "/garages/#{garage_1.id}/motorcycles"
+
+    expect(page).to have_button('Only return records with newer than `your input year` of model year')
+
+    fill_in 'model_year', with: 2000
+    click_on 'Only return records with newer than `your input year` of model year'
+    
+    expect(current_path).to eq("/garages/#{garage_1.id}/motorcycles")
+  end
 end

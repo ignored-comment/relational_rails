@@ -41,7 +41,12 @@ class RefrigeratorsController < ApplicationController
   end
 
   def index_sorted_foods_in_refrigerator
-    @foods = Refrigerator.find(params[:id]).foods.order(:name)
+    if params[:total_items_available].nil?
+      @foods = Refrigerator.find(params[:id]).foods.order(:name)
+    else
+      form_argument = params[:total_items_available]
+      @foods = Refrigerator.find(params[:id]).foods.where("total_items_available > ?", form_argument)
+    end
   end
 
   def destroy

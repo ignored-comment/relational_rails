@@ -1,7 +1,14 @@
 <a href="/garages">Full Garage Index</a><br>
 <a href="/motorcycles">Full Motorcycle Index</a><br>
 <%= link_to "New Motorcycle", new_motorcycle_path%><br>
-<%= link_to "Sort Motorcycles By Alphabetical Order", alphabetized_motorcycles_path, method: :patch%>
+<%= link_to "Sort Motorcycles By Alphabetical Order", alphabetized_motorcycles_path, method: :patch%><br>
+<%= form_with url: alphabetized_motorcycles_path, method: :patch, local: true do |form| %>
+
+  <%= form.label "model year" %>
+  <%= form.number_field :model_year, in: 1900..2050, step: 1%><br>
+  
+  <%= form.submit 'Only return records with newer than `your input year` of model year' %>
+<% end %>
 <h1> List of All Motorcycles</h1>
 
 <% @motorcycles.each do |motorcycle| %>

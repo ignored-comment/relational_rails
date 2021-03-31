@@ -82,4 +82,17 @@ RSpec.describe 'food index page via parent refrigerator', type: :feature do
     click_link "Full Foods Index"
     expect(current_path).to eq("/foods")
   end
+
+  it 'has form that filters foods based on argument' do
+    refrigerator_1 = Refrigerator.create!(name: "Kon's Refrigerator", has_freezer: false, capacity_cubic_feet: 4)
+
+    visit "/refrigerators/#{refrigerator_1.id}/foods"
+
+    expect(page).to have_button('Only return records with more than `number` of total items available')
+
+    fill_in 'total_items_available', with: 5
+    click_on 'Only return records with more than `number` of total items available'
+    
+    expect(current_path).to eq("/refrigerators/#{refrigerator_1.id}/foods")
+  end
 end

@@ -1,7 +1,14 @@
 <a href="/refrigerators">Full Refrigerator Index</a><br>
 <a href="/foods">Full Foods Index</a><br>
 <%= link_to "New Food", new_food_path%><br>
-<%= link_to "Sort Foods By Alphabetical Order", alphabetized_foods_path, method: :patch%>
+<%= link_to "Sort Foods By Alphabetical Order", alphabetized_foods_path, method: :patch%><br>
+<%= form_with url: alphabetized_foods_path, method: :patch, local: true do |form| %>
+
+<%= form.label "total items available" %>
+<%= form.number_field :total_items_available, in: 1..99, step: 1%><br>
+
+<%= form.submit 'Only return records with more than `number` of total items available' %>
+<% end %>
 
 <h1> List of All Food</h1>
 
@@ -13,4 +20,4 @@
   <p>Refrigerator ID: <%= food.refrigerator_id%></p>
   <p>Expired? <%= food.expired%></p>
   <p>Total Items Available: <%= food.total_items_available%></p><br>
-<% end %>
+<% end %><br>
