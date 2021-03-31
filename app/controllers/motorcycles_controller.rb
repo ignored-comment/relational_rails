@@ -37,4 +37,9 @@ class MotorcyclesController < ApplicationController
     motorcycle.save
     redirect_to "/motorcycles/#{motorcycle.id}"
   end
+
+  def destroy
+    Motorcycle.destroy(params[:id])
+    redirect_to "/motorcycles"
+  end
 end

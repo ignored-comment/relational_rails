@@ -13,3 +13,5 @@
 <p><%= @motorcycle.ride_ready %></p>
 <h2>Model Year: </h2>
 <p><%= @motorcycle.model_year %></p>
+
+<%= link_to "Delete Motorcycle", "/motorcycles/#{@motorcycle.id}", method: :delete %>
