@@ -39,4 +39,13 @@ class RefrigeratorsController < ApplicationController
     refrigerator.save
     redirect_to "/refrigerators/#{refrigerator.id}"
   end
+
+  def index_sorted_foods_in_refrigerator
+    @foods = Refrigerator.find(params[:id]).foods.order(:name)
+  end
+
+  def destroy
+    Refrigerator.destroy(params[:id])
+    redirect_to '/refrigerators'
+  end
 end

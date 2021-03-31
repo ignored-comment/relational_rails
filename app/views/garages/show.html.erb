@@ -15,3 +15,5 @@
 <p><%= @garage.max_capacity %> motorcycles</p>
 <h2>Number of Motorcycle Items: </h2>
 <%=@motorcycle_count%><br><br>
+
+<%= link_to "Delete Garage", "/garages/#{@garage.id}", method: :delete%>

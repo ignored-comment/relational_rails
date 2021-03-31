@@ -8,5 +8,6 @@
   <p>Updated at: <%= motorcycle.updated_at%></p><br>
   <p>Garage ID: <%= motorcycle.garage_id%></p>
   <p>Ride Ready? <%= motorcycle.ride_ready%></p>
-  <p>Motorcycle Year: <%= motorcycle.model_year%></p><br>
+  <p>Motorcycle Year: <%= motorcycle.model_year%></p>
+  <%= link_to "Update Motorcycle", "/motorcycles/#{motorcycle.id}/edit"%>
 <% end %>

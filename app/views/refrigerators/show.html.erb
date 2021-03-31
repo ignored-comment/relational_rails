@@ -14,3 +14,5 @@
 <h2>Capacity: </h2>
 <p><%= @refrigerator.capacity_cubic_feet %> cubic feet</p>
 <h2>Number of food items: </h2><%=@food_count%>
+
+<%= link_to "Delete Refrigerator", "/refrigerators/#{@refrigerator.id}", method: :delete%>

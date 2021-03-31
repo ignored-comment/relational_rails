@@ -90,4 +90,18 @@ RSpec.describe "refrigerator show page", type: :feature do
     click_link "Full Foods Index"
     expect(current_path).to eq("/foods")
   end
+
+  it "can delete a refrigerator from the refrigerators table" do
+    refrigerator = Refrigerator.create!(name: "Kon's Refrigerator", has_freezer: false, capacity_cubic_feet: 4)
+
+    visit "/refrigerators/#{refrigerator.id}"
+
+    expect(page).to have_content("Kon's Refrigerator")
+    expect(page).to have_link("Delete Refrigerator")
+
+    click_link "Delete Refrigerator"
+    expect(current_path).to eq("/refrigerators")
+
+    expect(page).to have_no_content("Kon's Refrigerator")
+  end
 end

@@ -47,4 +47,12 @@ RSpec.describe "refrigerator index page", type: :feature do
     click_link 'New Refrigerator'
     expect(current_path).to eq('/refrigerators/new')
   end
+  
+  it "has a link next to each refrigerator to edit the refrigerator" do
+    visit '/refrigerators'
+    
+    expect(page).to have_link('Update Refrigerator')
+    # click_link 'Update Refrigerator'
+    # expect(current_path).to eq('/refrigerators/new')
+  end
 end

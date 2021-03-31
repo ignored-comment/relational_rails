@@ -2,6 +2,7 @@
 <a href="/garages/new">New Garage</a>
 <h1>Garages</h1>
 
-<% @garage_order.each do |garage|%>
-  <h2><%= garage.name %>: Created at: <%=garage.created_at%></h2>
-<% end %>
+<%@garage_order.each do |garage|%>
+  <h2><%= garage.name %>: Created at: <%=garage.created_at%>
+  <%=link_to 'Update Garage', "/garages/#{garage.id}/edit"%></h2>
+<%end%>

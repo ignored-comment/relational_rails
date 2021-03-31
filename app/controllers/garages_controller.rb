@@ -13,6 +13,10 @@ class GaragesController < ApplicationController
     @motorcycles = Garage.find(params[:id]).motorcycles
   end
 
+  def index_sorted_motorycles_in_garage
+    @motorcycles = Garage.find(params[:id]).motorcycles.order(:name)
+  end
+
   def new
 
   end
@@ -40,5 +44,10 @@ class GaragesController < ApplicationController
       )
     garage.save
     redirect_to "/garages/#{garage.id}"
+  end
+
+  def destroy
+    Garage.destroy(params[:id])
+    redirect_to '/garages'
   end
 end
