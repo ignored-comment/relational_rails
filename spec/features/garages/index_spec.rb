@@ -47,4 +47,16 @@ RSpec.describe 'garages index page', type: :feature do
     click_link 'New Garage'
     expect(current_path).to eq('/garages/new')
   end
+
+  it 'I can delete an garage' do
+    garage = Garage.create(name: 'Talking Heads Garage')
+
+    visit '/garages'
+
+    click_link 'Delete'
+
+    expect(current_path).to eq('/garages')
+    expect(page).to_not have_content(garage.name)
+    expect(page).to_not have_link('Delete')
+  end
 end

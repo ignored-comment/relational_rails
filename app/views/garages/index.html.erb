@@ -5,4 +5,5 @@
 <%@garage_order.each do |garage|%>
   <h2><%= garage.name %>: Created at: <%=garage.created_at%>
   <%=link_to 'Update Garage', "/garages/#{garage.id}/edit"%></h2>
+  <%= link_to "Delete Garage", "/garages/#{garage.id}", method: :delete%>
 <%end%>
