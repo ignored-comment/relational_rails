@@ -60,4 +60,18 @@ RSpec.describe 'motorcycle index page', type: :feature do
     click_link "Full Garage Index"
     expect(current_path).to eq("/garages")
   end
+
+  it 'I can delete an motorcycle' do
+    garage = Garage.create!(name: "Squidward's Garage", at_capacity: false, max_capacity: 2)
+    motorcycle = garage.motorcycles.create!(name: "SeaShell Racer Type-S", ride_ready: true, model_year: 2020)
+    
+    visit '/motorcycles'
+
+    expect(page).to have_content(motorcycle.name)
+    click_link_or_button 'Delete Motorcycle'
+
+    expect(current_path).to eq('/motorcycles')
+    expect(page).to_not have_content(motorcycle.name)
+    expect(page).to_not have_link('Delete Motorcycle')
+  end
 end

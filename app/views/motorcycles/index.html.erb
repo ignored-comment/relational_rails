@@ -9,5 +9,6 @@
   <p>Garage ID: <%= motorcycle.garage_id%></p>
   <p>Ride Ready? <%= motorcycle.ride_ready%></p>
   <p>Motorcycle Year: <%= motorcycle.model_year%></p>
-  <%= link_to "Update Motorcycle", "/motorcycles/#{motorcycle.id}/edit"%>
+  <%= link_to "Update Motorcycle", "/motorcycles/#{motorcycle.id}/edit"%><br>
+  <%= link_to "Delete Motorcycle", "/motorcycles/#{motorcycle.id}", method: :delete%>
 <% end %>

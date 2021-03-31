@@ -53,10 +53,10 @@ RSpec.describe 'garages index page', type: :feature do
 
     visit '/garages'
 
-    click_link 'Delete'
+    click_link 'Delete Garage'
 
     expect(current_path).to eq('/garages')
     expect(page).to_not have_content(garage.name)
-    expect(page).to_not have_link('Delete')
+    expect(page).to_not have_link('Delete Motorcycle')
   end
 end
