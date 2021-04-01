@@ -1,6 +1,5 @@
 class GaragesController < ApplicationController
   def index
-    @garages = Garage.all
     @garage_order = Garage.order(:created_at)
   end
 
@@ -15,7 +14,7 @@ class GaragesController < ApplicationController
 
   def index_sorted_motorycles_in_garage
     if params[:model_year].nil?
-      @motorcycles = Garage.find(params[:id]).motorcycles.order(:name)
+      @motorcycles = Garage.find(params[:id]).alphabetize
     else
       @motorcycles = Garage.find(params[:id]).new_motorcycles(params[:model_year])
     end
@@ -25,12 +24,7 @@ class GaragesController < ApplicationController
   end
 
   def create
-    garage = Garage.create(
-      name: params[:name],
-      at_capacity: params[:at_capacity],
-      max_capacity: params[:max_capacity]
-      )
-
+    garage = Garage.create(garage_params)
     redirect_to '/garages'
   end
 
@@ -40,11 +34,7 @@ class GaragesController < ApplicationController
 
   def update
     garage = Garage.find(params[:id])
-    garage.update(
-      name: params[:name],
-      at_capacity: params[:at_capacity],
-      max_capacity: params[:max_capacity]
-      )
+    garage.update(garage_params)
     garage.save
     redirect_to "/garages/#{garage.id}"
   end
@@ -52,5 +42,10 @@ class GaragesController < ApplicationController
   def destroy
     Garage.destroy(params[:id])
     redirect_to '/garages'
+  end
+
+  private
+  def garage_params
+    params.permit(:name, :at_capacity, :max_capacity)
   end
 end

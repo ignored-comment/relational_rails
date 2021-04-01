@@ -8,4 +8,8 @@ class Garage < ApplicationRecord
   def new_motorcycles(year)
     self.motorcycles.where("model_year > ?", year)
   end
+
+  def alphabetize
+    self.motorcycles.order(:name)
+  end
 end

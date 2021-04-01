@@ -24,8 +24,17 @@ RSpec.describe Garage, type: :model do
       motorcycle1 = garage.motorcycles.create!(name: 'banana type-s', ride_ready: true, model_year:2018) 
       motorcycle2 = garage.motorcycles.create!(name: 'banana type-r', ride_ready: false, model_year:2019) 
       motorcycle3 = garage.motorcycles.create!(name: 'banana type-banana', ride_ready: true, model_year:2020) 
-
+      
       expect(garage.new_motorcycles(2018)).to eq([motorcycle2, motorcycle3])
+    end
+    
+    it 'alphabetizes motorcycles by name' do
+      garage = Garage.create!(name: 'model garage')
+      motorcycle2 = garage.motorcycles.create!(name: 'B-banana type-r', ride_ready: false, model_year:2019) 
+      motorcycle3 = garage.motorcycles.create!(name: 'C-banana type-banana', ride_ready: true, model_year:2020) 
+      motorcycle1 = garage.motorcycles.create!(name: 'A-banana type-s', ride_ready: true, model_year:2018) 
+
+      expect(garage.alphabetize).to eq([motorcycle1, motorcycle2, motorcycle3])
     end
   end
 end
