@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get '/garages/:id/motorcycles',
   to: 'garages#index_motorcycles_in_garage',
   as: 'motorcycles_in_this_garage'
-  patch '/garages/:id/motorcycles', to: 'garages#index_sorted_motorycles_in_garage', as: 'alphabetized_motorcycles'
+  patch '/garages/:id/motorcycles', to: 'garages#index_sorted_motorycles_in_garage', as: 'sorted_motorcycles'
 
   get '/motorcycles', to: 'motorcycles#index'
   get '/motorcycles/:id', to: 'motorcycles#show'
@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   get '/refrigerators/:id/foods',
     to: 'refrigerators#index_foods_in_refrigerator',
     as: 'foods_in_this_refrigerator'
-  patch '/refrigerators/:id/foods', to: 'refrigerators#index_sorted_foods_in_refrigerator', as: 'alphabetized_foods'
+  patch '/refrigerators/:id/foods', to: 'refrigerators#index_sorted_foods_in_refrigerator', as: 'sorted_foods'
 
   get '/foods', to: 'foods#index'
   get '/foods/:id', to: 'foods#show'

@@ -1,8 +1,8 @@
 <a href="/garages">Full Garage Index</a><br>
 <a href="/motorcycles">Full Motorcycle Index</a><br>
 <%= link_to "New Motorcycle", new_motorcycle_path%><br>
-<%= link_to "Sort Motorcycles By Alphabetical Order", alphabetized_motorcycles_path, method: :patch%><br>
-<%= form_with url: alphabetized_motorcycles_path, method: :patch, local: true do |form| %>
+<%= link_to "Sort Motorcycles By Alphabetical Order", sorted_motorcycles_path, method: :patch%><br>
+<%= form_with url: sorted_motorcycles_path, method: :patch, local: true do |form| %>
 
   <%= form.label "model year" %>
   <%= form.number_field :model_year, in: 1900..2050, step: 1%><br>
