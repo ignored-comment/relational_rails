@@ -1,8 +1,8 @@
 <a href="/refrigerators">Full Refrigerator Index</a><br>
 <a href="/foods">Full Foods Index</a><br>
 <%= link_to "New Food", new_food_path%><br>
-<%= link_to "Sort Foods By Alphabetical Order", alphabetized_foods_path, method: :patch%><br>
-<%= form_with url: alphabetized_foods_path, method: :patch, local: true do |form| %>
+<%= link_to "Sort Foods By Alphabetical Order", sorted_foods_path, method: :patch%><br>
+<%= form_with url: sorted_foods_path, method: :patch, local: true do |form| %>
 
 <%= form.label "total items available" %>
 <%= form.number_field :total_items_available, in: 1..99, step: 1%><br>
