@@ -17,8 +17,7 @@ class GaragesController < ApplicationController
     if params[:model_year].nil?
       @motorcycles = Garage.find(params[:id]).motorcycles.order(:name)
     else
-      form_argument = params[:model_year]
-      @motorcycles = Garage.find(params[:id]).motorcycles.where("model_year > ?", form_argument)
+      @motorcycles = Garage.find(params[:id]).new_motorcycles(params[:model_year])
     end
   end
 

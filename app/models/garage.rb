@@ -4,4 +4,8 @@ class Garage < ApplicationRecord
   def count_motorcycles
     self.motorcycles.count
   end
+
+  def new_motorcycles(year)
+    self.motorcycles.where("model_year > ?", year)
+  end
 end
